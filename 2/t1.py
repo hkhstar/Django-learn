@@ -22,10 +22,7 @@
 
 # x=input("Enter a number:")
 # def function(x):
-#     sum=0
-#     for i in range(int(x)):
-#         sum+=(i+1)
-#     return sum    
+#     return sum(range(0,int(x)))
 # result = function(x)
 # print(result)
 
@@ -33,13 +30,12 @@
 # تمرین 3 شمارش  عدد و حروف
 
 # def function(x):
-#     in_put=x.replace(" ", "")
 #     count_num=0
 #     count_str=0
-#     for i in in_put:
+#     for i in x:
 #         if i.isnumeric()==True:
 #             count_num+=1
-#         else:
+#         elif i.isalpha()==True:
 #             count_str+=1
 #     out={"charcaters":count_str,"numbers":count_num}
 #     return out
