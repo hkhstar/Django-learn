@@ -22,7 +22,7 @@
 
 # x=input("Enter a number:")
 # def function(x):
-#     return sum(range(0,int(x)))
+#     return sum(range(0,int(x)+1))
 # result = function(x)
 # print(result)
 
