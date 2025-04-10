@@ -3,8 +3,8 @@
 
 
 # user=input("Please insert your USERNAME: ")
+# pass_word=input("Please insert your PASSWOED: ")
 # if user=="admin":
-#     pass_word=input("Please insert your PASSWOED: ")
 #     if pass_word=="admin":
 #         print("successful login")
 #     else:
