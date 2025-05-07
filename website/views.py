@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse 
+# from django.http import HttpResponse 
 
 
 # # Create your views here.
@@ -25,3 +25,5 @@ def contact_view(request):
 
 def about_view(request):
     return render(request,'website/about.html')
+def test_view(request):
+    return render(request,'website/test.html')
