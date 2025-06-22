@@ -6,6 +6,12 @@
     <title>test</title>
 </head>
 <body>
-    <h1>Hello Mr {{name}} -- {{lastname}}</h1>
+    <h1></h1>
+
+    {%for post in posts%}
+    <h1>{{post.title}}</h1>
+    <p>{{post.content}}</p>
+    <small>{{post.published_date}}</small>
+    {%endfor%}
 </body>
 </html>
