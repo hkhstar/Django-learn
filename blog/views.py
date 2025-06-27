@@ -5,7 +5,7 @@ from django.utils import timezone
 
 def blog_home(request):
     now=timezone.now()
-    posts = post.objects.filter(published_date__gt=now,status=True).order_by('published_date')
+    posts = post.objects.filter(published_date__lte=now,status=True).order_by('-published_date')
     contexts={'posts':posts}
     return render(request,'blog/blog-home.html',contexts)
 
@@ -13,13 +13,17 @@ def blog_home(request):
 
 def blog_single(request,pid):
     posts=get_object_or_404(post,pk=pid)
+
+    posts.counted_views += 1
+    posts.save(update_fields=['counted_views'])
+    
     context={'post':posts}
     return render(request,'blog/blog-single.html',context)
 
 
-def test(request,pid):
-    posts=get_object_or_404(post,pk=pid)
-    context={'post':posts}
-    return render(request,'test.html',context)
+# def test(request,pid):
+#     posts=get_object_or_404(post,pk=pid)
+#     context={'post':posts}
+#     return render(request,'test.html',context)
 
 # Create your views here.
