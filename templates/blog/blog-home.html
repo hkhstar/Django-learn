@@ -47,8 +47,7 @@
 			<div class="col-lg-4">
 				<div class="single-cat-widget">
 					<div class="content relative">
-						<div class="overlay overlay-bg"></div>
-						<a href="#" target="_blank">
+						<div class="overlay blank">
 							<div class="thumb">
 								<img class="content-image img-fluid d-block mx-auto" src="{% static 'img/blog/cat-widget2.jpg'%}"
 									alt="">
@@ -114,13 +113,13 @@
 						<div class="feature-img">
 							<img class="img-fluid" src="{% static 'img/blog/feature-img1.jpg'%}" alt="">
 						</div>
-						<a class="posts-title" href="blog-single.html">
+						<a class="posts-title" href="{% url 'blog:single' pid=post.id%}">
 							<h3>{{post.title}}</h3>
 						</a>
 						<p class="excert">
 							{{post.content}}
 						</p>
-						<a href="blog-single.html" class="primary-btn">View More</a>
+						<a href="/blog/{{post.id}}" class="primary-btn">View More</a>
 					</div>
 				</div>
 				{%endfor%}
