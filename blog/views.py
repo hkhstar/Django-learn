@@ -12,7 +12,7 @@ def blog_home(request):
 
 
 def blog_single(request,pid):
-    posts=get_object_or_404(post,pk=pid)
+    posts=get_object_or_404(post,pk=pid,status=1)
 
     posts.counted_views += 1
     posts.save(update_fields=['counted_views'])
