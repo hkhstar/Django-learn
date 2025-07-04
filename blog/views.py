@@ -16,8 +16,10 @@ def blog_single(request,pid):
 
     posts.counted_views += 1
     posts.save(update_fields=['counted_views'])
-    
-    context={'post':posts}
+
+    next_post = post.objects.filter(id__gt=posts.id, status=True).order_by('id').first()
+    prev_post = post.objects.filter(id__lt=posts.id, status=True).order_by('-id').first()
+    context={'post':posts,'next':next_post,'prev':prev_post}
     return render(request,'blog/blog-single.html',context)
 
 
