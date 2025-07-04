@@ -1,6 +1,8 @@
 from django.contrib import admin
-from .models import post
+from .models import post,Category
 # Register your models here.
+
+admin.site.register(Category)
 @admin.register(post)
 class postadmin(admin.ModelAdmin):
     date_hierarchy = 'created_date'
@@ -11,4 +13,5 @@ class postadmin(admin.ModelAdmin):
     # ordering=['-created_date']
 
 # admin.site.register(post,postadmin)
+
 
