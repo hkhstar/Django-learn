@@ -1,0 +1,57 @@
+{%load static%}
+<nav class="blog-pagination justify-content-center d-flex">
+    <ul class="pagination">
+        <li class="page-item">
+            <a href="?page=1" class="page-link" aria-label="Previous">
+                <span aria-hidden="true">
+                    <span class="lnr lnr-chevron-left"></span>
+                </span>
+            </a>
+        </li>
+        {% for i in posts.paginator.page_range %}
+            {% if i == posts.number %}
+                <li class="page-item active">
+                    <a href="?page={{ i }}" class="page-link">{{ i }}</a>
+                </li>
+            {% else %}
+                <li class="page-item">
+                    <a href="?page={{ i }}" class="page-link">{{ i }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+        <li class="page-item">
+            <a href="?page={{ posts.paginator.num_pages }}"
+               class="page-link"
+               aria-label="Next">
+                <span aria-hidden="true">
+                    <span class="lnr lnr-chevron-right"></span>
+                </span>
+            </a>
+        </li>
+    </ul>
+</nav>
+                    {% comment %}
+					{% for contact in posts %}
+						{# Each "contact" is a Contact model object. #}
+						{{ contact.full_name|upper }}<br>
+						...
+					{% endfor %}
+
+					<div class="pagination">
+						<span class="step-links">
+							{% if posts.has_previous %}
+								<a href="?page=1">&laquo; first</a>
+								<a href="?page={{ posts.previous_page_number }}">previous</a>
+							{% endif %}
+
+							<span class="current">
+								Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+							</span>
+
+							{% if posts.has_next %}
+								<a href="?page={{ posts.next_page_number }}">next</a>
+								<a href="?page={{ posts.paginator.num_pages }}">last &raquo;</a>
+							{% endif %}
+						</span>
+					</div>
+{% endcomment %}
