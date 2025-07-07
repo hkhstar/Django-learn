@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from blog.models import post
+from django.utils import timezone
 # from django.http import HttpResponse 
 
 
@@ -15,9 +17,14 @@ from django.shortcuts import render
 #     return HttpResponse('<h1>about</h1>')
 
 
-def index_view(request):
 
-    return render(request,'website/index.html')
+now=timezone.now()
+
+
+def index_view(request):
+    posts = post.objects.filter(published_date__lte=now,status=True).order_by('-published_date')
+    contexts={'posts':posts[:6]}
+    return render(request,'website/index.html',contexts)
 
 
 def contact_view(request):
