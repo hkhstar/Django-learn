@@ -22,9 +22,7 @@ now=timezone.now()
 
 
 def index_view(request):
-    posts = post.objects.filter(published_date__lte=now,status=True).order_by('-published_date')
-    contexts={'posts':posts[:6]}
-    return render(request,'website/index.html',contexts)
+    return render(request,'website/index.html')
 
 
 def contact_view(request):

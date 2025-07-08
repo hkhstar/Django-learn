@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{%load website_tags%}
 {% load static %}
 {% block content %}
 
@@ -180,7 +181,7 @@
 
 
 <!-- Start blog Area -->
-  {% include "website/tags/website_latestpost.html" %}
+  {% lastest_p %}
 <!-- End recent-blog Area -->
 
 {%endblock%}
